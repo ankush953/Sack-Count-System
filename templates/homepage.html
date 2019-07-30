@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    {% if request.user.username %}
+    <form action="{% url 'query' %}" method="POST">
+        {% csrf_token %}
+        <input id="startdate" name="startdate" width="270" />
+        <script>
+            $('#startdate').datepicker({
+                uiLibrary: 'bootstrap'
+            });
+        </script>
+
+        <input id="enddate" name="enddate" width="270" />
+        <script>
+            $('#enddate').datepicker({
+                uiLibrary: 'bootstrap'
+            });
+        </script>
+
+        <select name="company">
+            {% for com in company %}
+            <option name="company">{{ com.company_name }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="submit" value="submit">
+
+    </form>
+    {% else %}
+    <p>Please <a href="{% url 'login' %}">Login </a>Here </p>
+    {% endif %}
+
+</div>
+{% endblock %}
