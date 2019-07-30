@@ -3,7 +3,44 @@
 {% block content %}
 <h1>Damn!!!</h1>
 
+<h3>Loading Table</h3>
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+
+    </tr>
+
+    {% for sack in lqs %}
+    <tr>
+        {{ sack.loading_date_time.date }}
+        {{ sack.loading_date_time.time }}
+    </tr>
+    {% endfor %}
+
+</table>
+<br><br>
+
+<h3>Unloading Table</h3>
+<table style="border: 2px solid black">
+    <tr>
+        <th>Date</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+    </tr>
+    {% for sack in uqs %}
+    <tr>
+        {{ sack.unloading_date_time.date }}
+        {{ sack.unloading_date_time.time }}
+    </tr>
+    {% endfor %}
+</table>
+
+
 {{ startdate }}
 {{ enddate }}
 {{ company }}
+{{ lqs }}
+{{ uqs }}
 {% endblock %}
