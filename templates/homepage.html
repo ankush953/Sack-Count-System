@@ -1,36 +1,72 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<div>
-    {% if request.user.username %}
-    <form action="{% url 'query' %}" method="POST">
+
+<script>
+    $(function () {
+        $("#startdate").datepicker({
+            showWeek: true,
+            yearSuffix: "-CE",
+            showAnim: "slide"
+        });
+    });
+</script>
+<script>
+    $(function () {
+        $("#enddate").datepicker({
+            showWeek: true,
+            yearSuffix: "-CE",
+            showAnim: "slide"
+        });
+    });
+</script>
+
+
+
+<div class="container">
+    <div class="hello" align="center">
+        <u>Enter The Following Details</u><br>
+    </div><br>
+    <br>
+    <form class="form-inline" method="POST" action="{% url 'query' %}" id="queryform">
         {% csrf_token %}
-        <input id="startdate" name="startdate" width="270" />
-        <script>
-            $('#startdate').datepicker({
-                uiLibrary: 'bootstrap'
-            });
-        </script>
+        <div class="row">
+            <div class="col-md-4">
+                <p class="hel"> Date From: <input class="form-control" type="text" name='startdate' id='startdate'
+                        style="resize:horizontal; width:200px" required></p>
+            </div>
+            <div class="col-md-4">
+                <p class="hel"> Date To: <input class="form-control" type="text" name='enddate' id='enddate'
+                        style="resize:horizontal; width:200px" required></p>
+            </div>
+            <label class="my-1 mr-2" for="inlineFormInputName2">
+                <p id="comp">Comapany Name: </p>
+            </label>
 
-        <input id="enddate" name="enddate" width="270" />
-        <script>
-            $('#enddate').datepicker({
-                uiLibrary: 'bootstrap'
-            });
-        </script>
 
-        <select name="company">
-            {% for com in company %}
-            <option name="company">{{ com.company_name }}</option>
-            {% endfor %}
-        </select>
+            <select class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Company Name"
+                name="company" required>
+                {% for com in company %}
+                <option value="{{ com.company_name }}">{{ com.company_name }}</option>
+                {% endfor %}
+            </select>
 
-        <input type="submit" value="submit">
-
+        </div>
     </form>
-    {% else %}
-    <p>Please <a href="{% url 'login' %}">Login </a>Here </p>
-    {% endif %}
-
+    <br><br>
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4"> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;
+            <button id="sub" class="btn btn-dark btn-lg" type="submit" form="queryform">Show
+                Details</button>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
 </div>
+
 {% endblock %}

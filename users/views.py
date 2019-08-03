@@ -48,7 +48,7 @@ def login_view(request):
             user = loginform.get_user()
             login(request, user)
             messages.success(request, 'login successful')
-            return render(request, 'homepage.html')
+            return redirect('home')
     context = {
         'form': loginform,
     }

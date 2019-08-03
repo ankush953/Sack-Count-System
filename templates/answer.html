@@ -1,43 +1,44 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<h1>Damn!!!</h1>
 
-<h3>Loading Table</h3>
-<table>
-    <tr>
-        <th>Date</th>
-        <th>Time</th>
-    </tr>
-
-    {% for sack in lqs %}
-    <tr>
-        <td> {{ sack.loading_date_time.date }} </td>
-        <td> {{ sack.loading_date_time.time }} </td>
-    </tr>
-    {% endfor %}
-
-</table>
-<br><br>
-
-<h3>Unloading Table</h3>
-<table style="border: 2px solid black">
-    <tr>
-        <th>Date</th>
-        <th>Time</th>
-    </tr>
-    {% for sack in uqs %}
-    <tr>
-        <td> {{ sack.unloading_date_time.date }} </td>
-        <td> {{ sack.unloading_date_time.time }} </td>
-    </tr>
-    {% endfor %}
-</table>
+{% for content in context %}
+{{ content }}
+{% endfor %}
 
 
-{{ startdate }}
-{{ enddate }}
-{{ company }}
-{{ lqs }}
-{{ uqs }}
+<div class="container">
+  <div class="hello">
+    &nbsp;&nbsp;&nbsp;&nbsp;<u>Truck And Sack Count Details</u><br>
+  </div><br>
+  <div class="hel">
+    <form>
+      <table class="tbl">
+        <tr>
+          <td align="right">Company Name</td>
+          <td align="left"><input type="text" name="first" value="{{ company }}" style="color:#333;" />
+          </td>
+      
+        </tr>
+        <tr>
+          <td align="right"><a href="{% url 'truck' %}" style="color: #e0abf1c7">Truck Count</a></td>
+          <td align="left"><input type="text" name="name" placeholder="display truckdetails" value="{{ trucks|length }}"  style="color:#333;" />
+          </td>
+        </tr>
+        <tr>
+          <td align="right">Total LoadedSack</td>
+          <td align="left"><input type="text" name="name" placeholder="display loadedSackcount"  value="{{ lqs|length }}" style="color:#333;   " />
+          </td>
+        </tr>
+        <tr>
+          <td align="right">Total Unloaded Sack</td>
+          <td align="left"><input type="text" name="name" placeholder="display unloadedSack ount"  value="{{ uqs|length }}" style="color:#333;" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>
+
 {% endblock %}

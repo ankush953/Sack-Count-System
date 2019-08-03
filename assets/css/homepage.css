@@ -1,0 +1,113 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+body{
+  background: -webkit-linear-gradient(left, #6234c4, #9434c4);
+  background: linear-gradient(to right, #6234c4, #9434c4);
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+
+#sub{
+  background-color: #fff;
+  font-family: "Times New Roman", Times, serif;
+  color:#333;
+  height: 65px;
+  width: 200px;
+  //margin:10px;
+  //margin-top: 5px;
+  //margin-bottom: 10px;
+  font-size: 30px;
+  color:#9434c4;
+  top: 10%;
+}
+#sub:hover {
+  background: #b224ef;
+  color: #fff;
+}
+
+#sub:hover:after {
+  transform: translateY(-50%) rotate(-35deg);
+}
+.d{
+  color: #fff;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: large;
+
+}
+.hello{
+  font-family: "Times New Roman", Times, serif;
+  font-style: normal;
+  font-size: 30px;
+}
+.hel{
+  font-family: "Times New Roman", Times, serif;
+  font-style: normal;
+  font-size: 20px;
+}
+#comp{
+  font-family: "Times New Roman", Times, serif;
+  font-style: normal;
+  font-size: 20px;
+}
+.fa {
+  padding: 20px;
+  font-size: 10px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.2);
+  color: black;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+/* follow me template */
+.made-with-love {
+  margin-top: 1400px;
+  padding: 20px;
+  clear: left;
+
+  font-size: 10px;
+  font-family: arial;
+  color: #fff;
+
+
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: white;
+  background-color: rgba(255, 255, 255, .4);
+   color: white;
+   text-align: center;
+}
+.made-with-love i {
+  font-style: normal;
+  color: #F50057;
+  font-size: 14px;
+  position: fixed;
+  top: 2px;
+}
+.made-with-love a {
+  color: #fff;
+  text-decoration: none;
+}
+.made-with-love :hover {
+  text-decoration: underline;
+}
+
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}

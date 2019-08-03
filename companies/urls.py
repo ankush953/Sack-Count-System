@@ -7,11 +7,9 @@ from django.conf.urls.static import static
 from companies.views import company_registration
 
 urlpatterns = [
-	path('register/',company_registration,name='companyregistration')
+    path('register/', company_registration, name='companyregistration')
 ]
 
 if settings.DEBUG:
-	urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
-
-
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

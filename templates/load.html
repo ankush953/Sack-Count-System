@@ -1,0 +1,57 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html lang = "en">
+   <head>
+      <meta charset = "utf-8">
+
+      <title>jQuery UI Datepicker functionality</title>
+      <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+          <link rel="stylesheet" href="homepage.css">
+          <link rel="stylesheet" href="header.css">
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Javascript -->
+      <script>
+         $(function() {
+            $( "#datepicker-11" ).datepicker({
+               showWeek:true,
+               yearSuffix:"-CE",
+               showAnim: "slide"
+            });
+         });
+      </script>
+      <style>
+        .form {
+  &__field {
+    width: 360px;
+    background: #fff;
+    color: $input-text-color;
+    font: inherit;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+    border: 0;
+    outline: 0;
+    padding: 22px 18px;
+  }
+      </style>
+   </head>
+
+   <body>
+     <form>
+       <label for="company">Company Name</label>
+       <input type="text" name="name" value="" id="comapany" placeholder="Display Company Name"><br><br>
+       <label for="truck"><a href="#" style="color: #e0abf1c7">Truck Count</a></label>
+       <input type="text" name="name" value="" id="truck" placeholder="Display no. of trucks"><br><br>
+       <label for="loaded"><a href="#" style="color: #e0abf1c7">Total LoadedSack</a></label>
+       <input type="text" name="name" value="" id="loaded" placeholder="Display LoadedSack Count"><br><br>
+       <label for="unloaded"><a href="#" style="color: #e0abf1c7">Total Unloaded Sack</a></label>
+       <input type="text" name="name" value="" id="unloaded" placeholder="Display UnloadedSack count">
+
+     </form>
+
+   </body>
+</html>
