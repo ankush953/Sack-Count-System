@@ -14,3 +14,6 @@ class RecordTime(models.Model):
 	truck = models.ForeignKey(Truck,on_delete=models.CASCADE)
 	entry_date_time = models.DateTimeField()
 	exit_date_time = models.DateTimeField()
+
+	def __str__(self):
+		return self.truck.plateno+'-'+str(self.id)

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from companies.models import Company
-from trucks.models import Truck
+from trucks.models import Truck, RecordTime
 import datetime
 from sacks.models import SackLoading, SackUnloading
 # Create your views here.
@@ -27,9 +27,8 @@ def query(request):
 
 	lqs = SackLoading.objects.filter(loading_date_time__gte=startdate,loading_date_time__lte=enddate)
 	uqs = SackUnloading.objects.filter(unloading_date_time__gte=startdate,unloading_date_time__lte=enddate)
-	trucks = Truck.objects.filter(entry_date_time__gte=startdate,exit_date_time__lte=enddate)
-	# print(startdate,enddate,company)
-	print(len(lqs))
+	recordtime = RecordTime.objects.filter(entry_date_time__gte=startdate,exit_date_time__lte=enddate)
+
 
 	context = {
 		'startdate':startdate,
@@ -38,7 +37,7 @@ def query(request):
 		'uqs':uqs,
 		'company':company,
 		'title':'Query',
-		'trucks':trucks,
+		'trucks':recordtime,
 	}
 
 	return render(request,'answer.html',context=context)
