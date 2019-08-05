@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<!--===============================================================================================-->
+<link rel="icon" type="image/png" href="{% static 'companyregister/images/icons/favicon.ico' %}" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{% static 'companyregister/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="{% static 'companyregister/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="{% static 'companyregister/fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{% static 'companyregister/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{% static 'companyregister/vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{% static 'companyregister/vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{% static 'companyregister/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{% static 'companyregister/vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{% static 'companyregister/css/util.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'companyregister/css/main.css' %}">
+<!--===============================================================================================-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'companyregister/header.css' %}">
+</head>
+
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+	<div class="limiter">
+		<div class="container-login100"
+			style="background-image: url('https://images.squarespace-cdn.com/content/v1/5c50683b2971144e208aa39e/1559731240935-LKKMQ1UA6UDE2DBI8HCQ/ke17ZwdGBToddI8pDm48kBL7y0DpH_e0bbX7enFn0u57gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UT4ke-2faLbDJ2EQYXZquaaYAmln24LeHvojPJ-RAjfURBpFeAJxHLqEa5Otf4mhGw/websitebg.jpg?format=2500w');">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" enctype="multipart/form-data" method="POST" action="">
+					{% csrf_token %}
+					<span class="login100-form-logo">
+						<i class="zmdi zmdi-landscape"></i>
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						Company Registration
+					</span>
+
+					<div class="wrap-input100 validate-input" align='center'>
+						{{ form|crispy }}
+					</div>
+					<p></p><br>
+
+
+					<br><br>
+
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit">
+							Register
+						</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="dropDownSelect1"></div>
+
+	<!--===============================================================================================-->
+	<script src="{% static 'companyregister/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+	<!--===============================================================================================-->
+	<script src="{% static 'companyregister/vendor/animsition/js/animsition.min.js' %}"></script>
+	<!--===============================================================================================-->
+	<script src="{% static 'companyregister/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'companyregister/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+	<!--===============================================================================================-->
+	<script src="{% static 'companyregister/vendor/select2/select2.min.js' %}"></script>
+	<!--===============================================================================================-->
+	<script src="{% static 'companyregister/vendor/daterangepicker/moment.min.js' %}"></script>
+	<script src="{% static 'companyregister/vendor/daterangepicker/daterangepicker.js' %}"></script>
+	<!--===============================================================================================-->
+	<script src="{% static 'companyregister/vendor/countdowntime/countdowntime.js' %}"></script>
+	<!--===============================================================================================-->
+	<script src="{% static 'companyregister/js/main.js' %}"></script>
+	{% endblock %}

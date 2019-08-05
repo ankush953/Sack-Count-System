@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
-
+{% load static %}
+{% block content %}
 
 <link rel="stylesheet" href="{% static 'css/truck.css' %}">
-
-{% block content %}
 <p></p>
 <section>
   <!--for demo wrap-->
@@ -25,14 +24,26 @@
   <div class="tbl-content">
     <table cellpadding="0" cellspacing="0" border="0" class="center">
       <tbody align="center">
+        {% for loaded in lqs %}
         <tr align="center">
-          <td>AAC</td>
-          <td>AUSTRALIAN COMPANY </td>
-          <td>$1.38</td>
-          <td>+2.01</td>
-          <td>-0.36%</td>
-          <td>-0.36%</td>
+          <td>{{ loaded.truck.plateno }}</td>
+          <td>Loading</td>
+          <td>{{ 1 }}</td>
+          <td>{{ loaded.truck.company.company_name }}</td>
+          <td>{{ loaded.loading_date_time }}</td>
+          <td>{{ loaded.loading_date_time }}</td>
         </tr>
+        {% endfor %}
+        {% for unloaded in uqs %}
+        <tr align="center">
+          <td>{{ unloaded.truck.plateno }}</td>
+          <td>UnLoading</td>
+          <td>{{ 1 }}</td>
+          <td>{{ unloaded.truck.company.company_name }}</td>
+          <td>{{ unloaded.unloading_date_time }}</td>
+          <td>{{ unloaded.unloading_date_time }}</td>
+        </tr>
+        {% endfor %}
 
       </tbody>
     </table>

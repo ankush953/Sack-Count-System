@@ -13,7 +13,7 @@
     &nbsp;&nbsp;&nbsp;&nbsp;<u>Truck And Sack Count Details</u><br>
   </div><br>
   <div class="hel">
-    <form>
+    <form method="POST" enctype="multipart/form-data" action="">
       <table class="tbl">
         <tr>
           <td align="right">Company Name</td>
@@ -23,7 +23,7 @@
         </tr>
         <tr>
           <td align="right"><a href="{% url 'truck' %}" style="color: #e0abf1c7">Truck Count</a></td>
-          <td align="left"><input type="text" name="name" placeholder="display truckdetails" value="{{ recordtime|length }}"  style="color:#333;" />
+          <td align="left"><input type="text" name="name" placeholder="display truckdetails" value="{{ trucks|length }}"  style="color:#333;" />
           </td>
         </tr>
         <tr>

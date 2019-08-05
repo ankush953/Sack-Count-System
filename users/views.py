@@ -5,10 +5,11 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-
+@login_required(login_url='login')
 def new_user(request):
     newuserform = forms.NewUserForm(
         request.POST or None, request.FILES or None)
@@ -56,11 +57,14 @@ def login_view(request):
     return render(request, 'login.html', context=context)
 
 
+@login_required(login_url='login')
 def logout_view(request):
     logout(request)
+    messages.success(request,"You have been loggged out.")
     return redirect('home')
 
 
+@login_required(login_url='login')
 def update_profile(request, username):
     # if request.method == "POST":
     if request.user.username == username:
@@ -73,6 +77,7 @@ def update_profile(request, username):
     messages.error(request, "Invalid access")
     return redirect('home')
 
+@login_required(login_url='login')
 def view_profile(request,username=None):
 	user = User.objects.filter(username=username)[0]
 	context = {

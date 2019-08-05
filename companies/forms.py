@@ -6,7 +6,7 @@ class CompanyRegistrationForm(forms.ModelForm):
         model = Company
         fields = [
             'company_name',
-            'logo',
             'location',
-            'number_of_trucks'
+            'number_of_trucks',
+            'logo',
         ]

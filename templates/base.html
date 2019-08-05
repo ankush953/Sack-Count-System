@@ -25,20 +25,32 @@
 
 <body>
 
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+    </ul>
+    {% endif %}
+
     <div class="custom-padding">
         <nav>
             <div class="logo"><img src="https://i1.wp.com/www.securitytoday.in/wp-content/uploads/2014/01/NEC_logo.jpg"
                     alt="NEC Logo" style="width:60px;height:30px;">
             </div>
-            <div class="sack">
-                <b>SACK COUNT SYSTEM</b>
+            <div class="sack" style="color: white">
+                <a href="{% url 'home' %}"> <b>SACK COUNT SYSTEM</b></a>
             </div>
             <ul class="menu-area">
                 <li><a href="{% url 'about' %}">About</a></li>
                 {% if request.user.username %}
                 <li><a href="#">Welcome User</a></li>
+                {% if admin %}
+                <li><a href="{% url 'newuser' %}">Add New User</a></li>
+                <li><a href="{% url 'companyregistration' %}">Add New Company</a></li>
+                {% endif %}
                 {% else %}
-                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="#">Sack Count System</a></li>
                 {% endif %}
                 {% if request.user.username %}
                 <li>
